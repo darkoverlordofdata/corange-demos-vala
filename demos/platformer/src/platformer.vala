@@ -18,7 +18,7 @@ public class Platformer {
   public UIButton victory;
   public UIButton newGame;
   public Vec2[] coinPositions;
-  public Vec2 camera = Vec2.zero();
+  public Vec2 camera = Vec2.Zero();
   public int levelScore = 0;
   public float levelTime = 0;
   public bool leftHeld = false;
@@ -39,23 +39,23 @@ public class Platformer {
       Vec2(81, 37), Vec2(77, 38), Vec2(72, 34), Vec2(65, 38), Vec2(71, 37)
     };
 
-    preload("../../../COrange/assets_core");
-    Graphics.viewport_set_icon(FPath("./logo.bmp"));
-    Graphics.viewport_set_title("d16a");
-    Graphics.viewport_set_position(120, 30);
-    Graphics.viewport_set_size(800, 560);
+    corange("../../../COrange/assets_core");
+    Graphics.viewportSetIcon(FPath("./logo.bmp"));
+    Graphics.viewportSetTitle("d16a");
+    Graphics.viewportSetPosition(120, 30);
+    Graphics.viewportSetSize(800, 560);
 
     init();
 
     /* Set the game running, create SDL_Event struct to monitor events */
     var running = true;
-    SDL.Event evt;
+    Event evt;
     
     while (running) {
       Frame.begin();
-      while (SDL.Event.poll(out evt) != 0) {
+      while (Event.poll(out evt) != 0) {
         switch (evt.type) {
-          case SDL.EventType.QUIT:
+          case EventType.QUIT:
             running = false;
             break;
         }
@@ -75,7 +75,7 @@ public class Platformer {
     levelScore = 0;
     levelTime = 0.0f;
     player.position = Vec2(20, 20).mul(TILE_SIZE);
-    player.velocity = Vec2.zero();
+    player.velocity = Vec2.Zero();
 
     /* We can create multiple entities using a name format string like printf */
     Entities.create("coin_id_%i", coinPositions.length, EntityType.Coin);
@@ -92,7 +92,7 @@ public class Platformer {
     newGame.active = false;
   }
 
-  public void event(SDL.Event evt) {
+  public void event(Event evt) {
     switch(evt.type) {
       case EventType.KEYDOWN:
         if (evt.key.keysym.sym == Input.Keycode.LEFT) { leftHeld = true; }
@@ -111,7 +111,7 @@ public class Platformer {
         break;
       }
     
-    ui_event(evt);
+    uiEvent(evt);
   }
 
   public void collisionDetection() {
@@ -260,7 +260,7 @@ public class Platformer {
     camera = Vec2(player.position.x, -player.position.y);
     
     /* Update the framerate text */
-    framerate.set_label(Frame.rate().to_string());
+    framerate.setLabel(Frame.rate().to_string());
     
     /* Update the time text */
     if (!victory.active) {
@@ -269,7 +269,7 @@ public class Platformer {
       time.label.draw();
     }
   
-    ui_update();
+    uiUpdate();
   }
 
   public void render() {
@@ -290,7 +290,7 @@ public class Platformer {
     
     currentLevel.renderTiles(camera);
 
-    ui_render();
+    uiRender();
   }
 
   public void init() {
@@ -315,32 +315,32 @@ public class Platformer {
     framerate = UIButton.create("framerate");
     framerate.move(Vec2(10, 10));
     framerate.resize(Vec2(30, 25));
-    framerate.set_label(" ");
+    framerate.setLabel(" ");
     framerate.disable();
 
     score = UIButton.create("score");
     score.move(Vec2(50, 10));
     score.resize(Vec2(120, 25));
-    score.set_label("Score 000000");
+    score.setLabel("Score 000000");
     score.disable();
       
     time = UIButton.create("time");
     time.move(Vec2(180, 10));
     time.resize(Vec2(110, 25));
-    time.set_label("Time 000000");
+    time.setLabel("Time 000000");
     time.disable();
       
     victory = UIButton.create("victory");
     victory.move(Vec2(365, 200));
     victory.resize(Vec2(70, 25));
-    victory.set_label("Victory!");
+    victory.setLabel("Victory!");
     victory.disable();
 
     newGame = UIButton.create("new_game");
     newGame.move(Vec2(365, 230));
     newGame.resize(Vec2(70, 25));
-    newGame.set_label("New Game");
-    newGame.set_onclick((button, data) => instance.resetGame());
+    newGame.setLabel("New Game");
+    newGame.setOnclick((button, data) => instance.resetGame());
     resetGame();
       
   }

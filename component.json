@@ -10,9 +10,14 @@
   "dependencies": {
     "corange": "git://github.com/darkoverlordofdata/doran-corange"
   },
-  "source": "demos/teapot",
+  "source": "demos/platformer/src",
   "files": [
-    "demos/teapot/main.vala"
+    "demos/platformer/src/character.vala",
+    "demos/platformer/src/coin.vala",
+    "demos/platformer/src/level.vala",
+    "demos/platformer/src/main.vala",
+    "demos/platformer/src/platformer.vala",
+    "demos/platformer/src/tiletype.vala"
   ],
   "packages": [
     "gio-2.0",

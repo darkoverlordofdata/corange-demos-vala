@@ -18,8 +18,8 @@ public class Character {
 
     public static CObject create() {
       var character = new Character();
-      character.position = Vec2.zero();
-      character.velocity = Vec2.zero();
+      character.position = Vec2.Zero();
+      character.velocity = Vec2.Zero();
       character.flapTimer = 0;
       character.facingLeft = false;
       return (CObject)character;
@@ -37,7 +37,7 @@ public class Character {
       position = position.add(velocity);
       
       if (flapTimer > 0.0) {
-        flapTimer -= (float)frame_time();
+        flapTimer -= (float)COrange.Frame.time();
       }
     }
 

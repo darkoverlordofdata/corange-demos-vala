@@ -12,8 +12,8 @@ public static int main (string[] args) {
 /** Register entity classes with COrange */
 [Compact] 
 public class EntityType  {
-  public static int Character { get { return type_find("Character", sizeof(Character)); } }
-  public static int Coin { get { return type_find("Coin", sizeof(Coin)); } }
-  public static int Level { get { return type_find("Level", sizeof(Level)); } }
+  public static int Character { get { return typeFind("Character", sizeof(Character)); } }
+  public static int Coin { get { return typeFind("Coin", sizeof(Coin)); } }
+  public static int Level { get { return typeFind("Level", sizeof(Level)); } }
 }
 

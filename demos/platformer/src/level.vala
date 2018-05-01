@@ -143,11 +143,11 @@ public class Level {
       glBindTexture(GL_TEXTURE_2D, Texture.gl("./backgrounds/bluesky.dds"));
       glBegin(GL_QUADS);
         
-        glVertex3f(0, Graphics.viewport_height(), 0.0f);
+        glVertex3f(0, Graphics.viewportHeight(), 0.0f);
         glTexCoord2f(1, 0);
-        glVertex3f(Graphics.viewport_width(), Graphics.viewport_height(), 0.0f);
+        glVertex3f(Graphics.viewportWidth(), Graphics.viewportHeight(), 0.0f);
         glTexCoord2f(1, 1);
-        glVertex3f(Graphics.viewport_width(), 0, 0.0f);
+        glVertex3f(Graphics.viewportWidth(), 0, 0.0f);
         glTexCoord2f(0, 1);
         glVertex3f(0, 0, 0.0f);
         glTexCoord2f(0, 0);
@@ -164,9 +164,9 @@ public class Level {
       
       for (int i = 1; i < numTileSets; i++) {
 
-        var tile_tex = ((TileType)i).toTexture();
+        var tileTex = ((TileType)i).toTexture();
 
-        glBindTexture(GL_TEXTURE_2D, tile_tex.handle());
+        glBindTexture(GL_TEXTURE_2D, tileTex.handle());
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, (GLint)GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, (GLint)GL_CLAMP_TO_EDGE);
         

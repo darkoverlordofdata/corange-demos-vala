@@ -13,7 +13,7 @@ public class Coin {
     public Vec2 position;
     public static CObject create() {
         var coin = new Coin();
-        coin.position = Vec2.zero();
+        coin.position = Vec2.Zero();
         return (CObject)coin;
     }
 
