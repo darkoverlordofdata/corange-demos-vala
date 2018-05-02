@@ -1,8 +1,8 @@
 using GL;
 using SDL;
-using COrange;
-using COrange.data;
-using COrange.assets;
+using Corange;
+using Corange.data;
+using Corange.assets;
 
 
 public const int TILE_SIZE = 32;
@@ -15,10 +15,8 @@ public struct TileSet {
 }
 
 
-[Compact, CCode (ref_function = "level_retain", unref_function = "level_release")]
+[Compact, CCode (ref_function = "", unref_function = "")]
 public class Level {
-  public void retain() {}
-  public void release() {}
   public extern void free();
 
   public const int MAX_WIDTH = 512;
@@ -48,7 +46,7 @@ public class Level {
       int y = 0;
       int x = 0;
       RWops file = new RWops.FromFile(filename, "r");
-      while (file.read_line(line, 1024) != 0) {
+      while (file.readLine(line, 1024) != 0) {
         
         for (x = 0; x < line.length; x++) {
           char c = line[x];

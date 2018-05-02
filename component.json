@@ -12,11 +12,11 @@
   },
   "source": "demos/platformer/src",
   "files": [
-    "demos/platformer/src/character.vala",
-    "demos/platformer/src/coin.vala",
-    "demos/platformer/src/level.vala",
-    "demos/platformer/src/main.vala",
-    "demos/platformer/src/platformer.vala",
+    "demos/platformer/src/character.gs",
+    "demos/platformer/src/level.gs",
+    "demos/platformer/src/coin.gs",
+    "demos/platformer/src/main.gs",
+    "demos/platformer/src/platformer.gs",
     "demos/platformer/src/tiletype.vala"
   ],
   "packages": [

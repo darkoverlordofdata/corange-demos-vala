@@ -1197,7 +1197,7 @@ namespace SDL {
 		[CCode (cname = "SDL_RWFromFile")]
 		public RWops.FromFile (string file, string mode);
 
-		public int read_line(char* buffer, int buffersize) {
+		public int readLine(char* buffer, int buffersize) {
 			char c;
 			size_t status = 0;
 			int i = 0;

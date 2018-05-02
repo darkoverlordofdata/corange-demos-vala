@@ -1,13 +1,11 @@
 using GL;
 using SDL;
-using COrange;
-using COrange.data;
-using COrange.assets;
+using Corange;
+using Corange.data;
+using Corange.assets;
 
-[Compact, CCode (ref_function = "coin_retain", unref_function = "coin_release")]
+[Compact, CCode (ref_function = "", unref_function = "")]
 public class Coin {
-    public void retain() {}
-    public void release() {}
     public extern void free();
 
     public Vec2 position;

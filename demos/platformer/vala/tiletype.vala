@@ -4,7 +4,6 @@ using Corange;
 using Corange.data;
 using Corange.assets;
 
-/** Genie: enums are broken */
 public enum TileType {
     NONE, AIR, DIRT, DIRT_ROCK, DIRT_OVERHANG,
     SURFACE, GRASS, GRASS_ROCK1, GRASS_ROCK2, GRASS_TREE,

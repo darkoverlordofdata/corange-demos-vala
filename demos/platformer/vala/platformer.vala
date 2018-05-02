@@ -1,11 +1,8 @@
 using GL;
 using SDL;
-using COrange;
-using COrange.ui;
-using COrange.data;
-
-/** coins are in an array, so no reference is detected by vala... */
-extern void coin_release();
+using Corange;
+using Corange.ui;
+using Corange.data;
 
 [Compact] 
 public class Platformer {
@@ -39,7 +36,7 @@ public class Platformer {
       Vec2(81, 37), Vec2(77, 38), Vec2(72, 34), Vec2(65, 38), Vec2(71, 37)
     };
 
-    corange("../../../COrange/assets_core");
+    corange("../../../Corange/assets_core");
     Graphics.viewportSetIcon(FPath("./logo.bmp"));
     Graphics.viewportSetTitle("d16a");
     Graphics.viewportSetPosition(120, 30);
@@ -60,9 +57,12 @@ public class Platformer {
             break;
         }
         event(evt);
+        uiEvent(evt);
       }
       update();
+      uiUpdate();
       render();
+      uiRender();
       Graphics.swap(); 
       Frame.end();
     }
@@ -110,8 +110,6 @@ public class Platformer {
         if (evt.key.keysym.sym == Input.Keycode.RIGHT) { rightHeld = false; }
         break;
       }
-    
-    uiEvent(evt);
   }
 
   public void collisionDetection() {
@@ -268,8 +266,6 @@ public class Platformer {
       time.label.text = "Time %06i".printf((int)levelTime);
       time.label.draw();
     }
-  
-    uiUpdate();
   }
 
   public void render() {
@@ -289,8 +285,6 @@ public class Platformer {
     }
     
     currentLevel.renderTiles(camera);
-
-    uiRender();
   }
 
   public void init() {

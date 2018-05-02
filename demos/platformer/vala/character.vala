@@ -1,14 +1,12 @@
 using GL;
 using SDL;
-using COrange;
-using COrange.data;
-using COrange.assets;
+using Corange;
+using Corange.data;
+using Corange.assets;
 
 
-[Compact, CCode (ref_function = "character_retain", unref_function = "character_release")]
+[Compact, CCode (ref_function = "", unref_function = "")]
 public class Character {
-    public void retain() {}
-    public void release() {}
     public extern void free();
 
     public Vec2 velocity;
@@ -29,7 +27,7 @@ public class Character {
       free();
     }
 
-    public string to_string() {
+    public string toString() {
       return "Character(%f,%f)".printf(velocity.x, velocity.y);
     }
     public void update() {
@@ -37,7 +35,7 @@ public class Character {
       position = position.add(velocity);
       
       if (flapTimer > 0.0) {
-        flapTimer -= (float)COrange.Frame.time();
+        flapTimer -= (float)Corange.Frame.time();
       }
     }
 
